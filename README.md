@@ -1,4 +1,4 @@
 OOPjavascript
 =============
 
-javascript class oop 
+javascript oop 
