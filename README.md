@@ -150,7 +150,8 @@ BASE CLASS
 ```html
 <script>
 
-// шисдгву base class to Class.base
+// подключаем базовый класс в Class.base
+// include base class to Class.base
 Class.base = new Class( function () {
 	var self = this;
 
