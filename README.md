@@ -7,12 +7,14 @@ javascript oop
 Создание класса:
 ```html
 <script>
+
 vae Cat = new Class(function(){
 	this.name = 'cat';
 	this.age = 12;
 });	
 
-var cat = new Cat;	
+var cat = new Cat;
+
 </script>
 ```
 
@@ -20,6 +22,7 @@ var cat = new Cat;
 Конструктор описывается в свойстве __construct и вызывается каждый раз при создании экземпляров
 ```html
 <script>
+
 vae Cat = new Class(function(){
 	this.name = 'cat';
 	this.age = 12;
@@ -32,12 +35,14 @@ vae Cat = new Class(function(){
 
 var cat = new Cat('Барсик', 12);
 var cat2 = new Cat('Даша', 3);
+
 </script>
 ```
 
 Наследование:
 ```html
 <script>
+
 vae Animal = new Class(function(){
 	this.say = function(){
 		alert('im animal!');
@@ -52,6 +57,7 @@ vae Cat = new Class(Animal, function(){
 
 var cat = new Cat('Барсик', 12);
 cat.say() // im animal!
+
 </script>
 ```
 
@@ -59,6 +65,7 @@ cat.say() // im animal!
 
 ```html
 <script>
+
 vae Animal = new Class(function(){
 	this.name = 'animal';
 });
@@ -68,7 +75,8 @@ vae Cat = new Class(Animal, function(parent){
 	this.name = 'cat';
 	
 	alert( parent('name') );  // animal - parent property
-});	
+});
+
 </script>
 ```
 
@@ -77,6 +85,7 @@ vae Cat = new Class(Animal, function(parent){
 
 ```html
 <script>
+
 vae Animal = new Class(function(){
 	this.name = 'animal';
 	this.say = function(){
@@ -90,7 +99,8 @@ vae Cat = new Class(Animal, function(parent){
 	
 	parent('say')() // 'animal' -  with parent object
 	parent('say', this)() // 'cat' -  with this object	
-});	
+});
+
 </script>
 ```
 
@@ -100,6 +110,7 @@ vae Cat = new Class(Animal, function(parent){
 
 ```html
 <script>
+
 function Class( a, b ) {
 
 	var description = a.isClass ? b : a;
@@ -129,6 +140,7 @@ function Class( a, b ) {
 
 	return constructor;
 }	
+
 </script>
 ```
 
