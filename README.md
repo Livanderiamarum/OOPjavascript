@@ -54,7 +54,7 @@ vae Cat = new Class( Animal, function(){
 	this.age = 12;
 });	
 
-var cat = new Cat('Барсик', 12);
+var cat = new Cat();
 cat.say() // im animal!
 
 </script>
