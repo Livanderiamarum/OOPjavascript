@@ -73,6 +73,7 @@ vae Animal = new Class(function(){
 vae Cat = new Class(Animal, function( parent ){
 	this.name = 'cat';
 	
+	parent() // return parent
 	alert( parent('name') );  // animal - parent property
 });
 
@@ -88,7 +89,7 @@ vae Cat = new Class(Animal, function( parent ){
 vae Animal = new Class(function(){
 	this.name = 'animal';
 	this.say = function(){
-		alert( 'name' );
+		alert( this.name );
 	};
 });
 
