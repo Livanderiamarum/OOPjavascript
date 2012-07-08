@@ -19,7 +19,7 @@ var cat = new Cat;
 ```
 
 
-Конструктор описывается в свойстве __construct и вызывается каждый раз при создании экземпляров
+Конструктор описывается в свойстве   __construct   и вызывается каждый раз при создании экземпляров
 ```html
 <script>
 
@@ -27,14 +27,13 @@ vae Cat = new Class(function(){
 	this.name = 'cat';
 	this.age = 12;
 	
-	this.__construct = function( name, age ){
+	this.__construct = function( name ){
 		this.name = name;
-		this.age = age;
 	}
 });	
 
-var cat = new Cat('Барсик', 12);
-var cat2 = new Cat('Даша', 3);
+var cat = new Cat('Барсик');
+var cat2 = new Cat('Даша');
 
 </script>
 ```
