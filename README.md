@@ -4,7 +4,7 @@ OOPjavascript
 javascript oop 
 
 
-
+Создание класса:
 ```html
 <script>
 
@@ -18,6 +18,47 @@ var cat = new Cat;
 </script>
 ```
 
+
+Конструктор описывается в свойстве __construct и вызывается каждый раз при создании экземпляров
+```html
+<script>
+
+vae Cat = new Class(function(){
+	this.name = 'cat';
+	this.age = 12;
+	
+	this.__construct = function( name, age ){
+		this.name = name;
+	}
+});	
+
+var cat = new Cat('Барсик', 12);
+var cat2 = new Cat('Даша', 3);
+
+</script>
+```
+
+Наследование:
+```html
+<script>
+
+vae Animal = new Class(function(){
+	this.say = function(){
+		alert('im animal!');
+	};
+});
+
+
+vae Cat = new Class(Animal, function(){
+	this.name = 'cat';
+	this.age = 12;
+});	
+
+var cat = new Cat('Барсик', 12);
+cat.say() // im animal!
+
+</script>
+```
 
 
 Собственно сам pattern
