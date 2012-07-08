@@ -49,7 +49,7 @@ vae Animal = new Class(function(){
 });
 
 
-vae Cat = new Class(Animal, function(){
+vae Cat = new Class( Animal, function(){
 	this.name = 'cat';
 	this.age = 12;
 });	
