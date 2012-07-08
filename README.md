@@ -27,7 +27,7 @@ var cat = new Cat;
 
 function Class( a, b ) {
 
-  var description = a.isClass ? b : a;
+	var description = a.isClass ? b : a;
 	var superClass = a.isClass ? a : b;
 	var constructor = function () {
 		if ( this['__construct'] )this['__construct'].apply( this, arguments );
