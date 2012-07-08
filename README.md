@@ -6,7 +6,14 @@ javascript oop
 
 
 ```html
-<script src="js/Three.js"></script>
+<script>
+
+vae Cat = new Class(function(){
+	this.name = 'cat';
+	this.age = 12;
+});	
+	
+</script>
 ```
 
 
