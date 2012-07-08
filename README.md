@@ -118,9 +118,7 @@ function Class( a, b ) {
 		if ( this['__construct'] )this['__construct'].apply( this, arguments );
 	};
 	var create = Object.create || function ( proto ) {
-		function Object() {
-		}
-
+		function Object() {}
 		Object.prototype = proto;
 		return new Object;
 	};
