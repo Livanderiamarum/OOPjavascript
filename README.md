@@ -142,4 +142,48 @@ function Class( a, b ) {
 </script>
 ```
 
+
+
+Базовый класс
+BASE CLASS
+
+```html
+<script>
+
+// шисдгву base class to Class.base
+Class.base = new Class( function () {
+	var self = this;
+
+	this.isClass = true;
+	this.toString = function () {
+		return '[object Class]'
+	};
+	this.toLocaleString = function () {
+		return '[object Class]'
+	};
+	this.isPrototypeOf = function ( object ) {
+		return Object.prototype.isPrototypeOf.call( this, object );
+	};
+	this.hasOwnProperty = function ( key ) {
+		return Object.prototype.hasOwnProperty.call( Object.getPrototypeOf( this ), key )
+	};
+	this.forIn = function ( callback ) {
+		for ( var key in this )
+			if ( key.indexOf( '_' ) !== 0 && !Object.prototype.hasOwnProperty.call( self, key ) )
+				if ( !callback.call( this, key ) === false )break
+
+	};
+	this.forEach = function ( callback ) {
+		for ( var key in this )
+			if ( key.indexOf( '_' ) !== 0 && !Object.prototype.hasOwnProperty.call( self, key ) )
+				if ( !callback.call( this, this[key], key ) === false )break
+	};
+} );
+
+</script>
+```
+
+
+
+
 ENJOY
