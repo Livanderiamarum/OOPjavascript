@@ -3,6 +3,8 @@ OOPjavascript
 
 javascript oop 
 
+<script>
+
 vae Cat = new Class(function(){
   this.name = 'cat';
   this.age = 12;
@@ -10,6 +12,7 @@ vae Cat = new Class(function(){
 
 var cat = new Cat;
 
+<\script>
 
 
 
