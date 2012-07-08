@@ -74,7 +74,7 @@ vae Cat = new Class(Animal, function( parent ){
 	this.name = 'cat';
 	
 	parent() // return parent object
-	alert( parent('name') );  // animal - parent property
+	alert( parent('name') );  // "animal" - parent property
 });
 
 </script>
