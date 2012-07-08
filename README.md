@@ -12,25 +12,18 @@ vae Cat = new Class(function(){
 	this.name = 'cat';
 	this.age = 12;
 });	
+
+var cat = new Cat;
 	
 </script>
 ```
 
 
+
+Собственно сам pattern
+
+```html
 <script>
-
-vae Cat = new Class(function(){
-  this.name = 'cat';
-  this.age = 12;
-});
-
-var cat = new Cat;
-
-<\script>
-
-
-
-
 
 function Class( a, b ) {
 
@@ -61,3 +54,6 @@ function Class( a, b ) {
 
 	return constructor;
 }
+	
+</script>
+```
