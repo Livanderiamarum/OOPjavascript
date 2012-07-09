@@ -163,7 +163,8 @@ Class.base = new Class( function () {
 		return '[object Class]'
 	};
 	this.hasOwnProperty = function ( key ) {
-		return Object.prototype.hasOwnProperty.call( Object.getPrototypeOf( this ), key )
+		var hasOwn = Object.prototype.hasOwnProperty;
+		return  hasOwn.call( this ) || Object.getPrototypeOf( this );
 	};
 	this.forIn = function ( callback ) {
 		for ( var key in this )
