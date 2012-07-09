@@ -162,9 +162,6 @@ Class.base = new Class( function () {
 	this.toLocaleString = function () {
 		return '[object Class]'
 	};
-	this.isPrototypeOf = function ( object ) {
-		return Object.prototype.isPrototypeOf.call( this, object );
-	};
 	this.hasOwnProperty = function ( key ) {
 		return Object.prototype.hasOwnProperty.call( Object.getPrototypeOf( this ), key )
 	};
@@ -174,10 +171,12 @@ Class.base = new Class( function () {
 				if ( !callback.call( this, key ) === false )break
 
 	};
-	this.forEach = function ( callback ) {
-		for ( var key in this )
-			if ( key.indexOf( '_' ) !== 0 && !Object.prototype.hasOwnProperty.call( self, key ) )
-				if ( !callback.call( this, this[key], key ) === false )break
+	this.keysOf = function ( value ) {
+		var findKeys = [];
+		this.forIn( function ( key ) {
+			if ( this[key] === value ) findKeys.push( key );
+		} );
+		return findKeys;
 	};
 } );
 
