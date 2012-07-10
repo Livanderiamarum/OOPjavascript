@@ -114,8 +114,8 @@ var Animal = new Class(function(){
 
 var Cat = new Class(Animal, function( parent ){
 	this.name = 'cat';
-	this.sayWithParent = function(){  parent.say()  };
-	this.sayWithThis = function(){  parent.say.call(this)  };
+	this.sayWithParent = function(){  parent.say()  }; // 'animal'
+	this.sayWithThis = function(){  parent.say.call(this)  }; // 'cat'
 });
 
 </script>
