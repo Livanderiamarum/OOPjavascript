@@ -3,6 +3,28 @@ OOPjavascript
 
 javascript oop 
 
+САМА ОБЕРТКА:
+
+```html
+<script>
+function Class( a, b ) {
+ 
+    var description = a.isClass ? b : a;
+    var superClass = a.isClass ? a : b;
+    var constructor = function () {if ( this['__construct'] )this['__construct'].apply( this, arguments );};
+    var proto = superClass ? superClass.prototype : Class.base ? Class.base.prototype : Object.prototype;
+    description.prototype = Object.create( proto );
+    var self = Object.create( description.prototype );
+    description.call( self, description.prototype, self );
+    constructor.prototype = self;
+    constructor.isClass = true;
+ 
+    return constructor;
+}
+</script>
+```
+
+
 
 Создание класса:
 ```html
@@ -24,8 +46,7 @@ var cat = new Cat;
 <script>
 
 vae Cat = new Class(function(){
-	this.name = 'cat';
-	this.age = 12;
+	this.name = '';
 	
 	this.__construct = function( name ){
 		this.name = name;
@@ -33,7 +54,6 @@ vae Cat = new Class(function(){
 });	
 
 var cat = new Cat('Барсик');
-var cat2 = new Cat('Даша');
 
 </script>
 ```
@@ -43,22 +63,18 @@ var cat2 = new Cat('Даша');
 <script>
 
 vae Animal = new Class(function(){
-	this.say = function(){
-		alert('im animal!');
-	};
+	this.say = function(){ alert('im animal!'); };
 });
 
-
-vae Cat = new Class( Animal, function(){
-	this.name = 'cat';
-	this.age = 12;
-});	
+// первым или вторым (как больше нравится) параметром передаем класс родитель
+vae Cat = new Class( Animal, function(){ });	
 
 var cat = new Cat;
 cat.say() // im animal!
 
 </script>
 ```
+
 
 Перекрытие родительских СВОЙСТВ и доступ к ним:
 
@@ -69,12 +85,15 @@ vae Animal = new Class(function(){
 	this.name = 'animal';
 });
 
-
+// в функцию описатель передается ссылка на экземпляр родительского класса Animal, 
+// который создается каждый раз при обьявлении дочернего класса и является общим 
+// для всех сущностей этого дочернего класса
 vae Cat = new Class(Animal, function( parent ){
 	this.name = 'cat';
-	
-	parent() // return parent object
-	alert( parent('name') );  // "animal" - parent property
+	this.say = function(){
+		alert( this.name ); // cat
+		alert( parent.name ); // animal
+	}
 });
 
 </script>
@@ -88,17 +107,14 @@ vae Cat = new Class(Animal, function( parent ){
 
 vae Animal = new Class(function(){
 	this.name = 'animal';
-	this.say = function(){
-		alert( this.name );
-	};
+	this.say = function(){ alert( this.name ) };
 });
 
 
 vae Cat = new Class(Animal, function( parent ){
 	this.name = 'cat';
-	
-	parent('say')() // 'animal' -  with parent object
-	parent('say', this)() // 'cat' -  with this object	
+	this.sayWithParent = function(){  parent.say()  };
+	this.sayWithThis = function(){  parent.say.call(this)  };
 });
 
 </script>
@@ -106,45 +122,10 @@ vae Cat = new Class(Animal, function( parent ){
 
 
 
-Собственно сам pattern
-
-```html
-<script>
-
-function Class( a, b ) {
-
-	var description = a.isClass ? b : a;
-	var superClass = a.isClass ? a : b;
-	var constructor = function () {
-		if ( this['__construct'] )this['__construct'].apply( this, arguments );
-	};
-	var create = Object.create || function ( proto ) {
-		function Object() {}
-		Object.prototype = proto;
-		return new Object;
-	};
-	var proto = superClass ? superClass.prototype : Class.base ? Class.base.prototype : Object.prototype;
-	description.prototype = create( proto );
-	constructor.prototype = new description( parent );
-	constructor.isClass = true;
-	var prototype = description.prototype;
-
-	function parent( key, context ) {
-		if ( !key )return prototype;
-		var value = prototype[key];
-		if ( value instanceof Function ) return value.bind( context || prototype );
-		return  value;
-	}
-
-	return constructor;
-}	
-
-</script>
-```
 
 
-
-Базовый класс
+И еще кое что, можно подключать для всех классов некий базовый класс
+это некий аналог Object.prototype, только для классов,
 BASE CLASS
 
 ```html
