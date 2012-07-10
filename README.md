@@ -30,7 +30,7 @@ function Class( a, b ) {
 ```html
 <script>
 
-vae Cat = new Class(function(){
+var Cat = new Class(function(){
 	this.name = 'cat';
 	this.age = 12;
 });	
@@ -45,7 +45,7 @@ var cat = new Cat;
 ```html
 <script>
 
-vae Cat = new Class(function(){
+var Cat = new Class(function(){
 	this.name = '';
 	this.__construct = function( name ){
 		this.name = name;
@@ -61,12 +61,12 @@ var cat = new Cat('Барсик');
 ```html
 <script>
 
-vae Animal = new Class(function(){
+var Animal = new Class(function(){
 	this.say = function(){ alert('im animal!'); };
 });
 
 // первым или вторым (как больше нравится) параметром передаем класс родитель
-vae Cat = new Class( Animal, function(){ });	
+var Cat = new Class( Animal, function(){ });	
 
 var cat = new Cat;
 cat.say() // im animal!
@@ -80,7 +80,7 @@ cat.say() // im animal!
 ```html
 <script>
 
-vae Animal = new Class(function(){
+var Animal = new Class(function(){
 	this.name = 'animal';
 });
 
@@ -89,7 +89,7 @@ vae Animal = new Class(function(){
 // для всех сущностей этого дочернего класса
 // то есть если мы хоть как изменит класс Animal изнутри класса Cat то это отразится только на Cat, 
 // на тех классах что тоже наследуют от Animal это не отразится
-vae Cat = new Class(Animal, function( parent ){
+var Cat = new Class(Animal, function( parent ){
 	this.name = 'cat';
 	this.say = function(){
 		alert( this.name ); // cat
@@ -106,13 +106,13 @@ vae Cat = new Class(Animal, function( parent ){
 ```html
 <script>
 
-vae Animal = new Class(function(){
+var Animal = new Class(function(){
 	this.name = 'animal';
 	this.say = function(){ alert( this.name ) };
 });
 
 
-vae Cat = new Class(Animal, function( parent ){
+var Cat = new Class(Animal, function( parent ){
 	this.name = 'cat';
 	this.sayWithParent = function(){  parent.say()  };
 	this.sayWithThis = function(){  parent.say.call(this)  };
