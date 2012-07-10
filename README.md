@@ -47,7 +47,6 @@ var cat = new Cat;
 
 vae Cat = new Class(function(){
 	this.name = '';
-	
 	this.__construct = function( name ){
 		this.name = name;
 	}
