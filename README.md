@@ -8,18 +8,15 @@ javascript oop
 ```html
 <script>
 function Class( a, b ) {
- 
-    var description = a.isClass ? b : a;
-    var superClass = a.isClass ? a : b;
-    var constructor = function () {if ( this['__construct'] )this['__construct'].apply( this, arguments );};
-    var proto = superClass ? superClass.prototype : Class.base ? Class.base.prototype : Object.prototype;
-    description.prototype = Object.create( proto );
-    var self = Object.create( description.prototype );
-    description.call( self, description.prototype, self );
-    constructor.prototype = self;
-    constructor.isClass = true;
- 
-    return constructor;
+
+	var description = a.isClass ? b : a;
+	var superClass = a.isClass ? a : b;
+	var constructor = function () { if ( this['__construct'] )this['__construct'].apply( this, arguments ) };
+	description.prototype = Object.create( superClass ? superClass.prototype : Class.base ? Class.base.prototype : Object.prototype );
+	constructor.prototype = new description( description.prototype );
+	constructor.isClass = true;
+
+	return constructor;
 }
 </script>
 ```
