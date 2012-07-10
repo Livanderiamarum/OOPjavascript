@@ -3,7 +3,7 @@ OOPjavascript
 
 javascript oop 
 
-СОБСТВЕННО ЧУДО ФУНКЦИЯ:
+САМА ФУНКЦИЯ:
 
 ```html
 <script>
