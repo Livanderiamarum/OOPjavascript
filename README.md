@@ -9,12 +9,11 @@ javascript oop
 <script>
 function Class( a, b ) {
 
-	var description = a.isClass ? b : a;
-	var superClass = a.isClass ? a : b;
-	var constructor = function () { if ( this['__construct'] )this['__construct'].apply( this, arguments ) };
-	description.prototype = Object.create( superClass ? superClass.prototype : Class.base ? Class.base.prototype : Object.prototype );
+	var description = b ? b : a;
+	var superClass = b ? a : b;
+	var constructor = function () {if ( this['__construct'] )this['__construct'].apply( this, arguments )};
+	description.prototype = Object.create( superClass? superClass.prototype : Class.base ? Class.base.prototype : Object.prototype );
 	constructor.prototype = new description( description.prototype );
-	constructor.isClass = true;
 
 	return constructor;
 }
