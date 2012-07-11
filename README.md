@@ -132,7 +132,6 @@ BASE CLASS
 <script>
 
 // подключаем базовый класс в Class.base
-// include base class to Class.base
 Class.base = new Class( function () {
 	var self = this;
 
