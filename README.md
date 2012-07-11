@@ -61,7 +61,7 @@ var Animal = new Class(function(){
 	this.say = function(){ alert('im animal!'); };
 });
 
-// первым или вторым (как больше нравится) параметром передаем класс родитель
+// первым параметром передаем класс родитель
 var Cat = new Class( Animal, function(){ });	
 
 var cat = new Cat;
