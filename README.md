@@ -66,10 +66,10 @@ var Animal = new Class(function(){
 var Cat = new Class( Animal, function(){ });	
 
 var cat = new Cat;
+
 cat instanceof Cat // true
 cat instanceof Animal // true
 cat.say() // im animal!
-
 
 </script>
 ```
