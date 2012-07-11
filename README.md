@@ -33,6 +33,8 @@ var Cat = new Class(function(){
 
 var cat = new Cat;
 
+cat instanceOf Cat // true
+
 </script>
 ```
 
@@ -66,6 +68,9 @@ var Cat = new Class( Animal, function(){ });
 
 var cat = new Cat;
 cat.say() // im animal!
+
+cat instanceOf Cat // true
+cat instanceOf Animal // true
 
 </script>
 ```
